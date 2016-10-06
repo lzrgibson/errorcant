@@ -3,6 +3,8 @@ spring:
     mongodb:
       database: errorcant-dev
       host: localhost
+  thymeleaf:
+    cache: false
 logging:
   level:
     root: DEBUG
