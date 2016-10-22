@@ -16,8 +16,9 @@ buildscript {
 }
 
 apply plugin: 'java'
+apply plugin: 'spring-boot'
 
-sourceCompatibility = 1.5
+sourceCompatibility = 1.8
 
 repositories {
     maven {
@@ -28,8 +29,8 @@ repositories {
 
 
 dependencies {
-    compile project(':errorcant-common')
-
     compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
     testCompile group: 'junit', name: 'junit', version: '4.11'
+
+    compile project(':errorcant-common')
 }
