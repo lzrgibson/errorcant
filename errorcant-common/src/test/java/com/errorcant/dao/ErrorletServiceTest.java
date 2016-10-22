@@ -1,6 +1,8 @@
 package com.errorcant.dao;
 
+import com.errorcant.model.Context;
 import com.errorcant.model.Errorlet;
+import com.errorcant.model.Solution;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -29,6 +31,9 @@ public class ErrorletServiceTest {
   @Autowired
   ErrorletLogRepository errorletLogRepository;
 
+  @Autowired
+  SolutionRepository solutionRepository;
+
   @Test
   public void findById() throws Exception {
     assertNull(errorletService.findById("test - never exist"));
@@ -42,6 +47,7 @@ public class ErrorletServiceTest {
   @Test
   public void save() throws Exception {
     Errorlet errorlet = new Errorlet("test - errorlet to save");
+    errorlet.setContext(new Context());
     errorlet = errorletService.save(errorlet);
     assertNotNull(errorlet.getId());
     assertNotNull(errorlet.getCreateDate());
@@ -60,5 +66,24 @@ public class ErrorletServiceTest {
 
     errorletLogRepository.deleteAll();
   }
+
+  @Test
+  public void saveSolution() throws Exception {
+
+  }
+
+  @Test
+  public void findByIdWithSolutions() throws Exception {
+    Errorlet errorlet = errorletRepository.save(new Errorlet("test - errorlet with solution"));
+    Solution solution = new Solution();
+    solution.setErrorletId(errorlet.getId());
+    solution = solutionRepository.save(solution);
+    errorlet = errorletService.findByIdWithSolutions(errorlet.getId());
+    assertNotNull(errorlet.getSolutions());
+
+    errorletRepository.delete(errorlet);
+    solutionRepository.delete(solution);
+  }
+
 
 }

@@ -35,6 +35,9 @@ public class Solution {
   @LastModifiedDate
   private Date updateDate;
 
+  public Solution() {
+  }
+
   public String getId() {
     return id;
   }
