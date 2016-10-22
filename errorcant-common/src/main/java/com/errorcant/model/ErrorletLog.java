@@ -11,7 +11,7 @@ import java.util.Date;
 /**
  * Created by yel on 10/21/16.
  */
-@Document
+@Document(collection = "errorlet_log")
 public class ErrorletLog  {
 
   @Id
