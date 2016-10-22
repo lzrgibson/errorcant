@@ -7,7 +7,6 @@ import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
-import java.util.List;
 
 /**
  *
@@ -23,6 +22,8 @@ public class Errorlet {
 
   @Indexed
   private String errorMessage;
+
+  private Context context;
 
   @CreatedDate
   private Date createDate;
@@ -46,6 +47,14 @@ public class Errorlet {
   }
   public String getErrorMessage() {
     return errorMessage;
+  }
+
+  public Context getContext() {
+    return context;
+  }
+
+  public void setContext(Context context) {
+    this.context = context;
   }
 
   public Date getCreateDate() {
