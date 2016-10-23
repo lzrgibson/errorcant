@@ -27,9 +27,9 @@ public class Errorlet {
   @Field(value = "error_message")
   private String errorMessage;
 
-  @Transient
   private Context context;
 
+  @Transient
   private List<Solution> solutions;
 
   @CreatedDate
