@@ -5,6 +5,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.Date;
 
@@ -18,11 +19,13 @@ public class ErrorletLog  {
   private String id;
 
   @Indexed
+  @Field(value = "errorlet_id")
   private String errorletId;
 
   private Errorlet errorlet;
 
   @CreatedDate
+  @Field(value = "create_date")
   private Date createDate;
 
   public ErrorletLog(){

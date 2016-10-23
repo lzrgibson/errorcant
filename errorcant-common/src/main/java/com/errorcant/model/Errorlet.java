@@ -6,6 +6,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.Date;
 import java.util.List;
@@ -23,6 +24,7 @@ public class Errorlet {
   private String id;
 
   @Indexed
+  @Field(value = "error_message")
   private String errorMessage;
 
   @Transient
@@ -31,9 +33,11 @@ public class Errorlet {
   private List<Solution> solutions;
 
   @CreatedDate
+  @Field(value = "create_date")
   private Date createDate;
 
   @LastModifiedDate
+  @Field(value = "update_date")
   private Date updateDate;
 
   public Errorlet() {

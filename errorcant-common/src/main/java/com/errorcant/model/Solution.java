@@ -5,6 +5,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.Date;
 import java.util.List;
@@ -19,6 +20,7 @@ public class Solution {
   private String id;
 
   @Indexed
+  @Field(value = "errorlet_id")
   private String errorletId;
 
   private String language;
@@ -30,10 +32,13 @@ public class Solution {
   private List<String> references;
 
   @CreatedDate
+  @Field(value = "create_date")
   private Date createDate;
 
   @LastModifiedDate
+  @Field(value = "update_date")
   private Date updateDate;
+
 
   public Solution() {
   }

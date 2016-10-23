@@ -3,6 +3,7 @@ package com.errorcant.model;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.Date;
 
@@ -18,6 +19,7 @@ public class SolutionLog {
   private Solution solution;
 
   @CreatedDate
+  @Field(value = "create_date")
   private Date createDate;
 
   public String getId() {

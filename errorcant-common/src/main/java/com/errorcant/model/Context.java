@@ -1,5 +1,7 @@
 package com.errorcant.model;
 
+import org.springframework.data.mongodb.core.mapping.Field;
+
 import java.util.List;
 
 /**
@@ -7,10 +9,12 @@ import java.util.List;
  */
 public class Context {
 
+  @Field(value = "computer_languages")
   private List<ContextElement> computerLanguages;
 
   private List<ContextElement> applications;
 
+  @Field(value = "operating_systems")
   private List<ContextElement> operatingSystems;
 
   public Context() {
