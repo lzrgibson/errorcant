@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en" th:lang="#{locale}">
+<head>
+  <title th:text="${errorlet.errorMessage} + ' - Errorcant'">Errorcant</title>
+  <link th:replace="common/resource :: #css/link">
+  <meta th:replace="common/meta :: #meta/meta">
+</head>
+<body>
+<div class="errorlet">
+  <div class="errorlet-errormessage">
+    <h1 th:text="${errorlet.errorMessage}">error message</h1>
+  </div>
+  <div class="errorlet-context" th:if="${errorlet.context} != null">
+    <div class="computerlanguages" th:if="${errorlet.context.computerLanguages} != null">
+      <div class="chip-sm" th:each="computerLanguage: ${errorlet.context.computerLanguages}">
+        <span class="chip-name"
+              th:text="${computerLanguage.name} + (${application.version} ? (' ' + ${application.version}) : '')">computer language</span>
+      </div>
+    </div>
+    <div class="applications" th:if="${errorlet.context.applications != null}">
+      <div class="chip-sm" th:each="application: ${errorlet.context.applications}">
+        <span class="chip-name"
+              th:text="${application.name} + (${application.version} ? (' ' + ${application.version}) : '')">application</span>
+      </div>
+    </div>
+  </div>
+  <p th:text="${errorlet}"></p>
+  <p th:text="${errorlet.solutions}"></p>
+</div>
+<footer th:replace="common/footer :: footer">footer</footer>
+<script th:replace="common/resource :: #js/script"></script>
+</body>
+</html>

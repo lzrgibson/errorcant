@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en" th:lang="#{locale}">
+<head>
+  <title>Errorcant</title>
+  <link th:replace="common/resource :: #css/link">
+  <meta th:replace="common/meta :: #meta/meta">
+</head>
+<body>
+<ul th:each="errorlet: ${errorlets}">
+  <li>
+    <div class="errorlet">
+      <div class="errorlet-errormessage">
+        <a th:href="@{/errorlet/} + ${errorlet.id}">
+          <h1 th:text="${errorlet.errorMessage}">error message</h1>
+        </a>
+      </div>
+    </div>
+  </li>
+</ul>
+<footer th:replace="common/footer :: footer">footer</footer>
+<script th:replace="common/resource :: #js/script"></script>
+</body>
+</html>
