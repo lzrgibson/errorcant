@@ -24,8 +24,16 @@
       </div>
     </div>
   </div>
-  <p th:text="${errorlet}"></p>
-  <p th:text="${errorlet.solutions}"></p>
+  <div class="causation-and-solution" th:each="solution: ${errorlet.solutions}">
+    <div class="causation">
+      <h2>Cause</h2>
+      <p th:text="${solution.causation}">cause of error</p>
+    </div>
+    <div class="solution">
+      <h2>Solution</h2>
+      <p th:text="${solution.solution}">solution of error</p>
+    </div>
+  </div>
 </div>
 <footer th:replace="common/footer :: footer">footer</footer>
 <script th:replace="common/resource :: #js/script"></script>
