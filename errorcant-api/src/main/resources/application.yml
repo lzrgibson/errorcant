@@ -3,3 +3,18 @@ spring:
     mongodb:
       database: errorcant-dev
       host: localhost
+---
+spring:
+  profiles: production
+  data:
+    mongodb:
+      host: ${ERRORCANT_PRODUCTION_MONGODB_HOST}
+      port: ${ERRORCANT_PRODUCTION_MONGODB_PORT}
+      password: ${ERRORCANT_PRODUCTION_MONGODB_PASSWORD}
+      username: errorcant-web
+      authentication-database: errorcant
+      database: errorcant
+
+logging:
+  level:
+    root: INFO

@@ -37,8 +37,12 @@ spring:
   profiles: production
   data:
     mongodb:
-      database: errorcant-prd
-      host: localhost
+      host: ${ERRORCANT_PRODUCTION_MONGODB_HOST}
+      port: ${ERRORCANT_PRODUCTION_MONGODB_PORT}
+      password: ${ERRORCANT_PRODUCTION_MONGODB_PASSWORD}
+      username: errorcant-web
+      authentication-database: errorcant
+      database: errorcant
 
 logging:
   level:

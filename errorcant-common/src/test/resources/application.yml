@@ -1,5 +1,9 @@
 spring:
   data:
     mongodb:
+      host: ${ERRORCANT_TEST_MONGODB_HOST}
+      port: ${ERRORCANT_TEST_MONGODB_PORT}
+      password: ${ERRORCANT_TEST_MONGODB_PASSWORD}
+      username: errorcant-test
+      authentication-database: errorcant-test
       database: errorcant-test
-      host: localhost
