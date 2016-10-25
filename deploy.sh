@@ -16,7 +16,7 @@ spawn /usr/bin/rsync -auv errorcant-web/build/libs/errorcant-0.0.1-SNAPSHOT.jar 
 expect "(yes/no)"
 send "yes\n"
 expect "assword:"
-send "$DEPLOY_ERRORCANT_PASSWORD"
+send "$DEPLOY_ERRORCANT_PASSWORD\n"
 interact
 EOF
 
