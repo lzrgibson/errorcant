@@ -19,5 +19,7 @@ before_deploy:
   - ./gradlew :errorcant-web:buildNeeded
 
 deploy:
-  - chmod +x deploy.sh
-  - ./deploy.sh
+  provider: script
+  script:
+    - chmod +x deploy.sh
+    - ./deploy.sh
