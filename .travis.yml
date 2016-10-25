@@ -17,10 +17,9 @@ before_deploy:
   - sudo apt-get update -qq
   - sudo apt-get install -qq expect rsync
   - ./gradlew :errorcant-web:buildNeeded
+  - chmod +x deploy.sh
 
 deploy:
   skip_cleanup: true
   provider: script
-  script:
-    - chmod +x deploy.sh
-    - ./deploy.sh
+  script: "./deploy.sh"
