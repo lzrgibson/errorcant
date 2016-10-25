@@ -12,3 +12,9 @@ cache:
   directories:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
+
+before_deploy:
+  - ./gradlew :errorcant-web:buildNeeded
+
+deploy:
+  - bash deploy.sh
