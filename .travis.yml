@@ -15,7 +15,7 @@ cache:
 
 before_deploy:
   - sudo apt-get update -qq
-  - sudo apt-get install -qq expect
+  - sudo apt-get install -qq expect rsync
   - ./gradlew :errorcant-web:buildNeeded
 
 deploy:
