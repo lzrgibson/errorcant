@@ -10,9 +10,11 @@ Host bw
   Port $DEPLOY_ERRORCANT_PORT
 EOF
 
-cat << EOF > /tmp/expect.sh
+ERRORCANT_WEB_JAR=`ls errorcant-web/build/libs/errorcant-*.jar`
+
+expect << EOF
 #!/usr/bin/expect -f
-spawn /usr/bin/rsync -auv errorcant-web/build/libs/errorcant-0.0.1-SNAPSHOT.jar bw:/var/errorcant/errorcant-web.jar
+spawn /usr/bin/rsync -auv $ERRORCANT_WEB_JAR bw:/var/errorcant/errorcant-web.jar
 expect "(yes/no)"
 send "yes\n"
 expect "assword:"
@@ -20,17 +22,13 @@ send "$DEPLOY_ERRORCANT_PASSWORD\n"
 interact
 EOF
 
-expect /tmp/expect.sh
+ERRORCANT_API_JAR=`ls errorcant-api/build/libs/errorcant-api-*.jar`
 
-cat << EOF > /tmp/expect.sh
+expect << EOF
 #!/usr/bin/expect -f
-spawn "/usr/bin/rsync -auv  errorcant-api/build/libs/errorcant-api-1.0.0.jar bw:/var/errorcant/errorcant-api.jar"
+spawn /usr/bin/rsync -auv $ERRORCANT_API_JAR bw:/var/errorcant/errorcant-api.jar
 expect "assword:"
 send "$DEPLOY_ERRORCANT_PASSWORD\n"
 interact
 EOF
 
-expect /tmp/expect.sh
-
-rm ~/.ssh/config -f
-rm /tmp/expect.sh -f
