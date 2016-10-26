@@ -25,11 +25,11 @@
     </div>
   </div>
   <div class="causation-and-solution" th:each="solution: ${errorlet.solutions}">
-    <div class="causation">
+    <div class="causation" th:if="${solution.causation} != null">
       <h2>Cause</h2>
       <p th:text="${solution.causation}">cause of error</p>
     </div>
-    <div class="solution">
+    <div class="solution" th:if="${solution.solution} != null">
       <h2>Solution</h2>
       <p th:text="${solution.solution}">solution of error</p>
     </div>
