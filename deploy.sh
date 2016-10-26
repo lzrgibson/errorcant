@@ -12,7 +12,7 @@ EOF
 
 cat << EOF > /tmp/expect.sh
 #!/usr/bin/expect -f
-spawn /usr/bin/rsync -auv errorcant-web/build/libs/errorcant-*.jar bw:/var/errorcant/errorcant-web.jar
+spawn /usr/bin/rsync -auv errorcant-web/build/libs/errorcant-0.0.1-SNAPSHOT.jar bw:/var/errorcant/errorcant-web.jar
 expect "(yes/no)"
 send "yes\n"
 expect "assword:"
@@ -24,7 +24,7 @@ expect /tmp/expect.sh
 
 cat << EOF > /tmp/expect.sh
 #!/usr/bin/expect -f
-spawn /usr/bin/rsync -auv  errorcant-api/build/libs/errorcant-api-*.jar bw:/var/errorcant/errorcant-api.jar
+spawn "/usr/bin/rsync -auv  errorcant-api/build/libs/errorcant-api-1.0.0.jar bw:/var/errorcant/errorcant-api.jar"
 expect "assword:"
 send "$DEPLOY_ERRORCANT_PASSWORD\n"
 interact
