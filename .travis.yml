@@ -17,6 +17,7 @@ before_deploy:
   - sudo apt-get update -qq
   - sudo apt-get install -qq expect rsync
   - ./gradlew :errorcant-web:buildNeeded
+  - ./gradlew :errorcant-api:buildNeeded
   - chmod +x deploy.sh
 
 deploy:
